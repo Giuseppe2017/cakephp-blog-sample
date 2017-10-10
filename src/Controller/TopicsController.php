@@ -3,7 +3,7 @@
 namespace App\Controller;
 use App\Controller\AppController;
 
-class TopicsController extends AppController{
+class TopicsController extends AdminAppController{
 	public function initialize(){
         parent::initialize();
         $this->loadComponent('Flash'); // Include the FlashComponent
@@ -20,12 +20,12 @@ class TopicsController extends AppController{
 
 	public function add(){
         $topic = $this->Topics->newEntity();
-
         if($this->request->is('post')){
             $arrData=$this->request->data;
+            $arrData['titleSlug']=$this->stringToSlug($this->request->data['title']);
             $arrData['created']=date('Y-m-d H:i:s');
             $arrData['modified']=date('Y-m-d H:i:s');
-            //print_r($arrData); exit;
+
             $topic = $this->Topics->patchEntity($topic, $arrData);
 			if ($this->Topics->save($topic)) {
                 $this->Flash->success(__('Your topic has been saved.'));

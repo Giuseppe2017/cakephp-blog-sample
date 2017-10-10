@@ -42,7 +42,14 @@ use Cake\Routing\Route\DashedRoute;
  *
  */
 Router::defaultRouteClass(DashedRoute::class);
-
+/*
+Router::prefix('admin', function ($routes) {
+    $routes->connect('/', ['controller' => 'Admin', 'action' => 'index']);
+    $routes->prefix('backend', function ($routes) {
+        //$routes->connect('/', ['controller' => 'Admins', 'action' => 'index']);
+    });
+});
+*/
 Router::scope('/', function (RouteBuilder $routes) {
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',
@@ -50,8 +57,9 @@ Router::scope('/', function (RouteBuilder $routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     //$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-    $routes->connect('/', ['controller' => 'Topics', 'action' => 'index', 'home']);
-    $routes->connect('/topicsTest', ['controller' => 'Topics', 'action' => 'index', 'home']);
+    $routes->connect('/', ['controller' => 'FrontEnd', 'action' => 'index', 'home']);
+    $routes->connect('/blog/*', ['controller' => 'FrontEnd', 'action' => 'view']);
+    $routes->connect('/admin', ['controller' => 'Admin', 'action' => 'index']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.

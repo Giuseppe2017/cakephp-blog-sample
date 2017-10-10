@@ -16,8 +16,8 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
-use Cake\Routing\Router;
 use Cake\Utility\Inflector;
+
 /**
  * Application Controller
  *
@@ -26,7 +26,7 @@ use Cake\Utility\Inflector;
  *
  * @link https://book.cakephp.org/3.0/en/controllers.html#the-app-controller
  */
-class AppController extends Controller
+class AdminAppController extends Controller
 {
 
     /**
@@ -44,6 +44,35 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
+            'loginRedirect' => [
+                'controller' => 'topics',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'admin',
+                'action' => 'index',
+            ],
+            'loginAction' => [
+                'controller' => 'admin',
+                'action' => 'index',
+            ],
+            'authError'=>'You need to login first to access this location !!'
+        ]);
+
+        /*
+        if (!$this->Auth->user()){
+            echo "Not logged in";
+        }else{
+            echo "Logged in";
+        }
+        if($this->request->session()->read('Auth.User.role')!='admin'){
+            //$this->Flash->error(__('Please login first'));
+            //return $this->redirect('/admin',null,true);
+            //exit;
+        }
+        */
+
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
@@ -67,6 +96,12 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
     }
+    /*
+    public function beforeFilter(Event $event)
+    {
+        $this->Auth->allow(['admin/index']);
+    }
+    */
 
     public function stringToSlug($str)
     {

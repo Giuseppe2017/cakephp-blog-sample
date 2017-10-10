@@ -1,22 +1,36 @@
 
-<h1 style="text-align: center;">Blog topics</h1>
-<ul>
-    <?php 
-        //print_r(iterator_count($topics));
-        if(isset($topics) && !$topics->isEmpty()){ 
-            foreach ($topics as $topic){
-    ?>
-    <li>
-        <h3><?= h($topic->title) ?></h3>
-        <p><?= h($topic->content) ?></p>
-        <p>Tags :<?= h($topic->tags) ?></p>
-        <span class="label label-info"><?= h($topic->tags) ?></span>
-        <p><?= "By <strong>".h($topic->author).'</strong> on <small>'.h(date('F d, Y',strtotime($topic->created)))."</small>" ?></p>
-        <!--
-        <?= $this->Html->link($topic->title, ['action' => 'view', $topic->id]) ?>
-        <?= date("d-m-Y", strtotime($topic->created)); ?>
-        <div class="clearfix">&nbsp;</div>
-        -->
-    </li>
-    <?php } } else { echo "No blogs found."; }//end foreach; ?>
-</ul>
+<h1>Blog topics</h1>
+<p>
+    <?= $this->Html->link('Add Topic', ['action' => 'add']) ?>
+    <?= $this->Html->link('Logout', array('controller'=>'admin', 'action'=>'logout')); ?>
+</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Title</th>
+        <th>Created</th>
+        <th>Modified</th>
+        <th>Actions</th>
+    </tr>
+    <?php foreach ($topics as $topic){ ?>
+    <tr>
+        <td>
+            <?= $this->html->link($topic->title, ['action' => 'view', $topic->id]) ?>
+        </td>
+        <td>
+            <?= date("d-m-Y", strtotime($topic->created)); ?>
+        </td>
+        <td>
+            <?= date("d-m-Y", strtotime($topic->modified)); ?>
+        </td>
+        <td>
+            <?= $this->Form->postLink(
+                'Delete',
+                ['action' => 'delete', $topic->id],
+                ['confirm' => 'Are you sure?'])
+            ?>
+            <?= $this->html->link('Edit', ['action' => 'edit', $topic->id]) ?>
+        </td>
+    </tr>
+    <?php } //end foreach; ?>
+</table>
