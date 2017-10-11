@@ -2,14 +2,17 @@
 
 namespace App\Controller;
 use App\Controller\AppController;
+use Cake\View\Helper\BreadcrumbsHelper;
 
 class TopicsController extends AdminAppController{
 	public function initialize(){
         parent::initialize();
         $this->loadComponent('Flash'); // Include the FlashComponent
+        $this->viewBuilder()->layout('backend');
     }
 
 	public function index(){
+        //$this->layout('admin');
         $this->set('topics', $this->Topics->find('all'));
     }
 

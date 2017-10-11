@@ -1,11 +1,23 @@
+<!--<div class="col-md-9">-->
+<h1>Blogs</h1>
+<div class="row">
+    <div class="col-md-4"><h3><?= $this->Html->link('Add Topic', '/topics/add',['class'=>'btn btn-primary']) ?></h3></div>
+    <div class="pull-right">
+        <?php
+            $this->Html->addCrumb('Home', '/admin/');
+            $this->Html->addCrumb('Blogs');
+            echo $this->Html->getCrumbList(
+                [
+                    'firstClass' => false,
+                    'lastClass' => 'active',
+                    'class' => 'breadcrumb'
+                ]
+            );
+        ?>
+    </div>
+</div>
 
-<h1>Blog topics</h1>
-<p>
-    <?= $this->Html->link('Add Topic', ['action' => 'add']) ?>
-    <?= $this->Html->link('Logout', array('controller'=>'admin', 'action'=>'logout')); ?>
-</p>
-
-<table class="table table-bordered">
+<table class="table table-bordered table-responsive" id="example">
     <tr>
         <th>Title</th>
         <th>Created</th>
@@ -27,10 +39,11 @@
             <?= $this->Form->postLink(
                 'Delete',
                 ['action' => 'delete', $topic->id],
-                ['confirm' => 'Are you sure?'])
+                ['confirm' => 'Are you sure?','class'=>'btn btn-danger'])
             ?>
-            <?= $this->html->link('Edit', ['action' => 'edit', $topic->id]) ?>
+            <?= $this->html->link('Edit', ['action' => 'edit', $topic->id],['class'=>'btn btn-success']) ?>
         </td>
     </tr>
     <?php } //end foreach; ?>
 </table>
+<!--</div>-->

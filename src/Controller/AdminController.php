@@ -7,6 +7,7 @@ class AdminController extends AdminAppController{
 	public function initialize(){
         parent::initialize();
         $this->loadComponent('Flash'); // Include the FlashComponent
+        //$this->viewBuilder()->layout('backend');
     }
 
 	public function index(){
@@ -26,6 +27,12 @@ class AdminController extends AdminAppController{
             }
             $this->Flash->error(__('Invalid username or password, try again'));
         }
+    }
+
+    public function dashboard(){
+        $arrData=array();
+        $this->viewBuilder()->layout('backend');
+        $this->set('dashboard', $arrData);
     }
 
     public function logout(){

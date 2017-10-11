@@ -46,8 +46,8 @@ class AdminAppController extends Controller
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
             'loginRedirect' => [
-                'controller' => 'topics',
-                'action' => 'index'
+                'controller' => 'admin',
+                'action' => 'dashboard'
             ],
             'logoutRedirect' => [
                 'controller' => 'admin',
@@ -59,6 +59,7 @@ class AdminAppController extends Controller
             ],
             'authError'=>'You need to login first to access this location !!'
         ]);
+        
 
         /*
         if (!$this->Auth->user()){

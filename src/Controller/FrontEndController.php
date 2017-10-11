@@ -9,6 +9,7 @@ class FrontEndController extends AppController{
         parent::initialize();
         $this->loadComponent('Flash'); // Include the FlashComponent
         $this->loadModel('Topics');
+        $this->viewBuilder()->layout('frontend');
     }
 
 	public function index(){
