@@ -1,10 +1,48 @@
-<footer class="navbar-default navbar-fixed-bottom">
-  	<div class="container-fluid">
-    	<div class="row">
-        	<div class="col-md-12 text-center"><p><strong>Copyright &copy; Webonise Labs Pvt Ltd.</strong></p></div>
-    	</div>
-  	</div>
-</footer>
+    <!-- Footer -->
+    <footer>
+      	<div class="container">
+	        <div class="row">
+	          	<div class="col-lg-8 col-md-10 mx-auto">
+	            	<ul class="list-inline text-center">
+	              		<li class="list-inline-item">
+	                		<a href="#">
+	                  			<span class="fa-stack fa-lg">
+	                    			<i class="fa fa-circle fa-stack-2x"></i>
+	                    			<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+	                  			</span>
+	                		</a>
+	              		</li>
+	              		<li class="list-inline-item">
+	                		<a href="#">
+	                  			<span class="fa-stack fa-lg">
+	                    			<i class="fa fa-circle fa-stack-2x"></i>
+	                    			<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+	                  			</span>
+	                		</a>
+	              		</li>
+	              		<li class="list-inline-item">
+	                		<a href="#">
+	                  			<span class="fa-stack fa-lg">
+	                    			<i class="fa fa-circle fa-stack-2x"></i>
+	                    			<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+	                  			</span>
+	                		</a>
+	              		</li>
+	            	</ul>
+	            	<p class="copyright text-muted">Copyright &copy; Webonise Labs Pvt Ltd.</p>
+	          </div>
+	        </div>
+     	</div>
+    </footer>
+
+<?php
+    echo $this->Html->script(array(
+        'jquery.min.js'
+        ,'bootstrap.min.js'
+        ,'frontend/popper/popper.min.js'
+        ,'frontend/clean-blog.min.js'
+    ));
+?>
 
 <script type="text/javascript">	
     $(function() {

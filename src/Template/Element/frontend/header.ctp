@@ -1,27 +1,29 @@
-<!-- Navigation -->
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <?php echo $this->Html->link('Webonise Blog Portal','/',['class'=>'navbar-brand']); ?>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fa fa-bars"></i>
             </button>
-            <?= $this->Html->link('Admin Panel', '/admin/',['class'=>'navbar-brand']) ?>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><?php echo $this->Html->link('Home','/',['class'=>'nav-link']); ?></li>
+                    <!--<li class="nav-item"><?php echo $this->Html->link('Contact','/contact',['class'=>'nav-link']); ?></li>-->
+                </ul>
+            </div>
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <!--<li><?= $this->Html->link('Posts', '/') ?></li>-->
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $this->request->session()->read('Auth.User.username'); ?> <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><?= $this->Html->link('Logout', array('controller'=>'admin', 'action'=>'logout')); ?></li>
-                    </ul>
-                </li>
-            </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <?php $sImageURL=$link.'/img/frontend/home-bg.jpg'; ?>
+    <header class="masthead" style="background-image: url(<?php echo $sImageURL; ?>)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>Blogs</h1>
+                        <span class="subheading"></span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</nav>
+    </header>
