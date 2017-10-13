@@ -18,6 +18,8 @@ use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\Routing\Router;
 use Cake\Utility\Inflector;
+use Cake\Core\Configure;
+
 /**
  * Application Controller
  *
@@ -44,6 +46,7 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
@@ -66,6 +69,12 @@ class AppController extends Controller
         if (!array_key_exists('_serialize', $this->viewVars) && in_array($this->response->type(), ['application/json', 'application/xml'])){
             $this->set('_serialize', true);
         }
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        $this->tempVar="aasadssad";
+        //debug(Configure::read('SettingsSite.title'));
     }
 
     public function stringToSlug($str)

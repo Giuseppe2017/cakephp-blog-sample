@@ -3,6 +3,7 @@
 namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Routing\Router;
+use Cake\Core\Configure;
 
 class FrontEndController extends AppController{
 	public function initialize(){
@@ -10,6 +11,7 @@ class FrontEndController extends AppController{
         $this->loadComponent('Flash'); // Include the FlashComponent
         $this->loadModel('Topics');
         $this->viewBuilder()->layout('frontend');
+        $this->set('FrontEndImage',Router::url('/', true).'img/frontend/home-bg.jpg');
     }
 
 	public function index(){
@@ -25,5 +27,9 @@ class FrontEndController extends AppController{
         //$topic = $this->Topics->get($id);
         $topics = $this->Topics->find('all',['conditions'=>['titleSlug'=>$id]]);
         $this->set(compact('topics'));
+    }
+
+    public function contact(){
+
     }
 }

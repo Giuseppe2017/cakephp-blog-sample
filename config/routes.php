@@ -59,6 +59,8 @@ Router::scope('/', function (RouteBuilder $routes) {
     //$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
     $routes->connect('/', ['controller' => 'FrontEnd', 'action' => 'index', 'home']);
     $routes->connect('/blog/*', ['controller' => 'FrontEnd', 'action' => 'view']);
+    $routes->connect('/contact', ['controller' => 'FrontEnd', 'action' => 'contact']);
+
     $routes->connect('/admin', ['controller' => 'Admin', 'action' => 'index']);
 
     /**

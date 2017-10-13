@@ -6,6 +6,14 @@
   	</div>
 </footer>
 
+<?php
+    echo $this->Html->script(array(
+        'jquery.min.js'
+        //,'bootstrap.min.js'
+        ,'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
+    ));
+?>
+
 <script type="text/javascript">	
     $(function() {
         //$('#example').DataTable();

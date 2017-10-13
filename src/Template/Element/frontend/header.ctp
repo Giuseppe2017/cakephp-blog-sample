@@ -7,15 +7,14 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><?php echo $this->Html->link('Home','/',['class'=>'nav-link']); ?></li>
-                    <!--<li class="nav-item"><?php echo $this->Html->link('Contact','/contact',['class'=>'nav-link']); ?></li>-->
+                    <li class="nav-item"><?php echo $this->Html->link('Contact','/contact',['class'=>'nav-link']); ?></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <?php $sImageURL=$link.'/img/frontend/home-bg.jpg'; ?>
-    <header class="masthead" style="background-image: url(<?php echo $sImageURL; ?>)">
+    <header class="masthead" style="background-image: url(<?php echo $FrontEndImage; ?>)">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
